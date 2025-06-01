@@ -25,9 +25,6 @@ configurations {
 }
 
 dependencies {
-    compileOnlyApi 'org.joml:joml-primitives:1.10.0'
-    compileOnlyApi 'org.joml:joml:1.10.4'
-
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
     modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
@@ -36,16 +33,21 @@ dependencies {
 
     modImplementation("net.fabricmc:fabric-language-kotlin:${rootProject.fabric_kotlin_version}+kotlin.${rootProject.kotlin_version}")
 
-    implementation(include(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${rootProject.mixin_extras}")))
+    // Mixin Extras
+    implementation(include(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extras}")))
+    // Mixin Squared
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:${mixin_squared}"))
+    // Conditional Mixin
+    implementation(include("me.fallenbreath:conditional-mixin-fabric:${conditional_mixin}"))
 
-    // Valkyrien Skies 2
-    modApi("org.valkyrienskies:valkyrienskies-120-fabric:${rootProject.vs2_version}") { transitive = false }
-
-    // VS Core
-    compileOnly("org.valkyrienskies.core:api:${rootProject.vs_core_version}")
-    compileOnly("org.valkyrienskies.core:api-game:${rootProject.vs_core_version}")
-    compileOnly("org.valkyrienskies.core:util:${rootProject.vs_core_version}")
-    compileOnly("org.valkyrienskies.core:impl:${rootProject.vs_core_version}")
+    // VS2
+    modApi("org.valkyrienskies:valkyrienskies-120-fabric:${vs2_version}") { transitive = false }
+    compileOnly("org.valkyrienskies.core:api:${vs_core_version}")
+    compileOnly("org.valkyrienskies.core:api-game:${vs_core_version}")
+    compileOnly("org.valkyrienskies.core:util:${vs_core_version}")
+    compileOnly("org.valkyrienskies.core:impl:${vs_core_version}")
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
+    api "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
 
     modImplementation("com.lowdragmc.photon:photon-fabric-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-fabric-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }

@@ -12,6 +12,17 @@ allprojects {
     group = rootProject.maven_group
     version = rootProject.mod_version
 
+    // Force LWJGL version
+    configurations.configureEach {
+        resolutionStrategy.force "org.lwjgl:lwjgl-stb:3.3.1"
+        resolutionStrategy.force "org.lwjgl:lwjgl-opengl:3.3.1"
+        resolutionStrategy.force "org.lwjgl:lwjgl-openal:3.3.1"
+        resolutionStrategy.force "org.lwjgl:lwjgl-tinyfd:3.3.1"
+        resolutionStrategy.force "org.lwjgl:lwjgl-jemalloc:3.3.1"
+        resolutionStrategy.force "org.lwjgl:lwjgl-glfw:3.3.1"
+        resolutionStrategy.force "org.lwjgl:lwjgl:3.3.1"
+    }
+
     repositories {
         maven {
             name = "ParchmentMC"
@@ -32,17 +43,30 @@ subprojects {
 
     repositories {
         maven {
-            name = 'kotlinforforge'
-            url = 'https://thedarkcolour.github.io/KotlinForForge/'
+            name = 'Mixin Squared'
+            url = "https://jitpack.io"
         }
         maven {
+            name = 'Conditional Mixins'
+            url 'https://maven.fallenbreath.me/releases'
+            content {
+                includeGroup "me.fallenbreath"
+            }
+        }
+        maven {
+            name = 'Kotlin for Forge'
+            url = 'https://thedarkcolour.github.io/KotlinForForge/'
+            content { includeGroup "thedarkcolour" }
+        }
+        // VS2: maven
+        maven {
             name = "Valkyrien Skies Internal"
-            url = project.vs_maven_url ?: 'https://maven.valkyrienskies.org'
-            if (project.vs_maven_username && project.vs_maven_password) {
-                credentials {
-                    username = project.vs_maven_username
-                    password = project.vs_maven_password
-                }
+            url = "https://maven.valkyrienskies.org"
+        }
+        maven {
+            url = "https://api.modrinth.com/maven"
+            content {
+                includeGroup("maven.modrinth")
             }
         }
         maven { url = "https://maven.firstdarkdev.xyz/snapshots" }
@@ -55,6 +79,10 @@ subprojects {
             officialMojangMappings()
             parchment("org.parchmentmc.data:parchment-${rootProject.minecraft_version}:2023.09.03@zip")
         }
+
+        // VS2: JOML is required
+        implementation("org.joml:joml:1.10.4") { transitive = false }
+        implementation("org.joml:joml-primitives:1.10.0") { transitive = false }
     }
 
     java {

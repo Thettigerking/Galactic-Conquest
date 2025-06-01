@@ -3,9 +3,6 @@ architectury {
 }
 
 dependencies {
-    api 'org.joml:joml-primitives:1.10.0'
-    api 'org.joml:joml:1.10.4'
-
     // We depend on Fabric Loader here to use the Fabric @Environment annotations,
     // which get remapped to the correct annotations on each platform.
     // Do NOT use other classes from Fabric Loader.
@@ -13,16 +10,21 @@ dependencies {
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
 
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${rootProject.mixin_extras}"))
+    // Mixin Extras
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras}"))
+    // Mixin Squared
+    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared}"))
+    // Conditional Mixin
+    implementation("me.fallenbreath:conditional-mixin-fabric:${conditional_mixin}")
 
-    // Valkyrien Skies 2
-    modApi("org.valkyrienskies:valkyrienskies-120-common:${rootProject.vs2_version}") { transitive = false }
-
-    // VS Core
-    compileOnly("org.valkyrienskies.core:api:${rootProject.vs_core_version}")
-    compileOnly("org.valkyrienskies.core:api-game:${rootProject.vs_core_version}")
-    compileOnly("org.valkyrienskies.core:util:${rootProject.vs_core_version}")
-    compileOnly("org.valkyrienskies.core:impl:${rootProject.vs_core_version}")
+    // VS2
+    modApi("org.valkyrienskies:valkyrienskies-120-common:${vs2_version}") { transitive = false }
+    compileOnly("org.valkyrienskies.core:api:${vs_core_version}")
+    compileOnly("org.valkyrienskies.core:api-game:${vs_core_version}")
+    compileOnly("org.valkyrienskies.core:util:${vs_core_version}")
+    compileOnly("org.valkyrienskies.core:impl:${vs_core_version}")
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
+    api "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
 
     modImplementation("com.lowdragmc.photon:photon-common-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-common-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
