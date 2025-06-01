@@ -3,10 +3,27 @@ architectury {
 }
 
 dependencies {
+    api 'org.joml:joml-primitives:1.10.0'
+    api 'org.joml:joml:1.10.4'
+
     // We depend on Fabric Loader here to use the Fabric @Environment annotations,
     // which get remapped to the correct annotations on each platform.
     // Do NOT use other classes from Fabric Loader.
     modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
 
     modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${rootProject.mixin_extras}"))
+
+    // Valkyrien Skies 2
+    modApi("org.valkyrienskies:valkyrienskies-120-common:${rootProject.vs2_version}") { transitive = false }
+
+    // VS Core
+    compileOnly("org.valkyrienskies.core:api:${rootProject.vs_core_version}")
+    compileOnly("org.valkyrienskies.core:api-game:${rootProject.vs_core_version}")
+    compileOnly("org.valkyrienskies.core:util:${rootProject.vs_core_version}")
+    compileOnly("org.valkyrienskies.core:impl:${rootProject.vs_core_version}")
+
+    modImplementation("com.lowdragmc.photon:photon-common-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-common-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
 }

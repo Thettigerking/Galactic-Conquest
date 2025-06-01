@@ -11,6 +11,13 @@ architectury {
 allprojects {
     group = rootProject.maven_group
     version = rootProject.mod_version
+
+    repositories {
+        maven {
+            name = "ParchmentMC"
+            url = "https://maven.parchmentmc.org"
+        }
+    }
 }
 
 subprojects {
@@ -24,15 +31,30 @@ subprojects {
     }
 
     repositories {
+        maven {
+            name = 'kotlinforforge'
+            url = 'https://thedarkcolour.github.io/KotlinForForge/'
+        }
+        maven {
+            name = "Valkyrien Skies Internal"
+            url = project.vs_maven_url ?: 'https://maven.valkyrienskies.org'
+            if (project.vs_maven_username && project.vs_maven_password) {
+                credentials {
+                    username = project.vs_maven_username
+                    password = project.vs_maven_password
+                }
+            }
+        }
         maven { url = "https://maven.firstdarkdev.xyz/snapshots" }
+        mavenCentral()
     }
 
     dependencies {
         minecraft "net.minecraft:minecraft:$rootProject.minecraft_version"
-        mappings loom.officialMojangMappings()
-
-        implementation fg.deobf("com.lowdragmc.photon:photon-common-1.20.1:{latest_version}") { transitive = false }
-        implementation fg.deobf("com.lowdragmc.ldlib:ldlib-common-1.20.1:{latest_version}") { transitive = false }
+        mappings loom.layered() {
+            officialMojangMappings()
+            parchment("org.parchmentmc.data:parchment-${rootProject.minecraft_version}:2023.09.03@zip")
+        }
     }
 
     java {

@@ -31,9 +31,29 @@ configurations {
 }
 
 dependencies {
+    api 'org.joml:joml-primitives:1.10.0'
+    api 'org.joml:joml:1.10.4'
+
     forge "net.minecraftforge:forge:$rootProject.forge_version"
 
     modImplementation "dev.architectury:architectury-forge:$rootProject.architectury_api_version"
+
+    implementation("thedarkcolour:kotlinforforge:$forge_kotlin_version")
+
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${rootProject.mixin_extras}"))
+    implementation(include("io.github.llamalad7:mixinextras-forge:${rootProject.mixin_extras}"))
+
+    // Valkyrien Skies 2
+    modApi("org.valkyrienskies:valkyrienskies-120-forge:$vs2_version") { transitive = false }
+
+    // VS Core
+    implementation("org.valkyrienskies.core:api:$vs_core_version")
+    implementation("org.valkyrienskies.core:api-game:$vs_core_version")
+    implementation("org.valkyrienskies.core:util:$vs_core_version")
+    implementation("org.valkyrienskies.core:impl:$vs_core_version")
+
+    modImplementation("com.lowdragmc.photon:photon-forge-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-forge-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')
