@@ -1,0 +1,12 @@
+{
+    "type": "galacticconquest:solar_system",
+    "generator":{
+      "type": "minecraft:flat",
+      "settings": {
+        "biome": "minecraft:void",
+        "layers": [
+        ],
+        "structure_overrides": []
+      }
+    }
+}
