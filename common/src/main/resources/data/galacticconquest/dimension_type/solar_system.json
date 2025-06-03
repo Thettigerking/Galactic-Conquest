@@ -1,18 +1,19 @@
 {
   "ultrawarm": false,
   "natural": false,
-  "piglin_safe": true,
+  "piglin_safe": false,
   "respawn_anchor_works": false,
-  "bed_works": true,
-  "has_raids": false,
-  "has_skylight": true,
+  "bed_works": false,
+  "has_raids": true,
+  "has_skylight": false,
   "has_ceiling": false,
   "coordinate_scale": 1,
-  "ambient_light": 0.5,
+  "ambient_light": 0,
+  "logical_height": 256,
+  "effects": "minecraft:overworld",
   "infiniburn": "#minecraft:infiniburn_overworld",
-  "min_y": -496,
-  "height": 2000,
-  "logical_height": 1504,
+  "min_y": -256,
+  "height": 512,
   "monster_spawn_light_level": {
     "type": "minecraft:uniform",
     "value": {
@@ -20,6 +21,5 @@
       "max_inclusive": 7
     }
   },
-  "monster_spawn_block_light_limit": 0,
-  "effects": "galacticconquest:solar_system"
+  "monster_spawn_block_light_limit": 0
 }
