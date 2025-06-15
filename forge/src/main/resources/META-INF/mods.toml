@@ -4,7 +4,7 @@ loaderVersion = "[47,)"
 license = "All Rights Reserved"
 
 [[mods]]
-modId = "galacticconquest"
+modId = "GalacticConquest"
 version = "${version}"
 displayName = "Galactic Conquest"
 authors = ""
@@ -13,21 +13,21 @@ description = '''
 '''
 #logoFile = ""
 
-[[dependencies.galacticconquest]]
+[[dependencies.GalacticConquest]]
 modId = "forge"
 mandatory = true
 versionRange = "[47,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.galacticconquest]]
+[[dependencies.GalacticConquest]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.galacticconquest]]
+[[dependencies.GalacticConquest]]
 modId = "architectury"
 mandatory = true
 versionRange = "[9.2.14,)"
