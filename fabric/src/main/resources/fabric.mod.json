@@ -11,18 +11,18 @@
     "homepage": ""
   },
   "license": "All-Rights-Reserved",
-  "icon": "assets/GalacticConquest/icon.png",
+  "icon": "assets/galacticconquest/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.thetigerking.galacticconquest.fabric.GalacticConquestFabric"
+      "com.thettigerking.galacticconquest.fabric.GalacticConquestFabric"
     ],
     "client": [
       "com.thettigerking.galacticconquest.fabric.client.GalacticConquestFabricClient"
     ]
   },
   "mixins": [
-    "GalacticConquest.mixins.json"
+    "galacticconquest-common.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.14",
