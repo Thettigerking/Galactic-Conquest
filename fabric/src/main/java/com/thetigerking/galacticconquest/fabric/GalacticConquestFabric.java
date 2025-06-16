@@ -1,9 +1,9 @@
 package com.thetigerking.galacticconquest.fabric;
 
-import com.thetigerking.galacticconquest.Galacticconquest;
+import com.thetigerking.galacticconquest.GalacticConquest;
 import net.fabricmc.api.ModInitializer;
 
-public final class GalacticconquestFabric implements ModInitializer {
+public final class GalacticConquestFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         // This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -11,6 +11,6 @@ public final class GalacticconquestFabric implements ModInitializer {
         // Proceed with mild caution.
 
         // Run our common setup.
-        Galacticconquest.init();
+        GalacticConquest.init();
     }
 }
