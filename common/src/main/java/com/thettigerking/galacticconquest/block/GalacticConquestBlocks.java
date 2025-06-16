@@ -1,6 +1,6 @@
-package com.thettigerking.galacticconquest.block;
+package com.thetigerking.galacticconquest.block;
 
-import com.thettigerking.galacticconquest.GalacticConquest;
+import com.thetigerking.galacticconquest.GalacticConquest;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
