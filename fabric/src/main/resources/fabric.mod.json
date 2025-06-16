@@ -15,7 +15,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.thettigerking.galacticconquest.fabric.GalacticConquestFabric"
+      "com.thetigerking.galacticconquest.fabric.GalacticConquestFabric"
     ],
     "client": [
       "com.thettigerking.galacticconquest.fabric.client.GalacticConquestFabricClient"
