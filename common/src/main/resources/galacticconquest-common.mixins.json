@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.thetigerking.GalacticConquest.mixin",
+  "package": "com.thettigerking.galacticconquest.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [

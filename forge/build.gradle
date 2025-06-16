@@ -4,7 +4,7 @@ plugins {
 
 loom {
     forge {
-        mixinConfig "GalacticConquest.mixins.json"
+        mixinConfig "galacticconquest-common.mixins.json"
     }
 }
 

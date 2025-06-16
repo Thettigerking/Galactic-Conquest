@@ -1,6 +1,6 @@
-package com.thetigerking.galacticconquest.forge;
+package com.thettigerking.galacticconquest.forge;
 
-import com.thetigerking.galacticconquest.GalacticConquest;
+import com.thettigerking.galacticconquest.GalacticConquest;
 import dev.architectury.platform.forge.EventBuses;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

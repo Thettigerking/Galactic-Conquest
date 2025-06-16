@@ -1,6 +1,6 @@
-package com.thetigerking.galacticconquest.fabric;
+package com.thettigerking.galacticconquest.fabric;
 
-import com.thetigerking.galacticconquest.GalacticConquest;
+import com.thettigerking.galacticconquest.GalacticConquest;
 import net.fabricmc.api.ModInitializer;
 
 public final class GalacticConquestFabric implements ModInitializer {
