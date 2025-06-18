@@ -24,7 +24,7 @@ public class GalacticConquestBlocks {
     public static final RegistrySupplier<Block> MARTIANSTONE = registerBlock(
             "martianstone",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
-                    .friction(0)
+                   // .friction(.6f)
                     .ignitedByLava()
                     .destroyTime(5)
             )
