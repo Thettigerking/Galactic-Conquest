@@ -54,6 +54,9 @@ dependencies {
     //forgeRuntimeLibrary implementation("org.valkyrienskies.core:impl:${vs_core_version}") { transitive = false }
     forgeRuntimeLibrary implementation("thedarkcolour:kotlinforforge:${forge_kotlin_version}")
 
+    // Gravity API
+    modImplementation("com.github.min2222:Gravity-API:${forge_gravity_api_version}")
+
     // region Manually include every single dependency of vs-core (total meme)
     /*forgeRuntimeLibrary include("org.valkyrienskies.core:api:${vs_core_version}") {
         transitive = false

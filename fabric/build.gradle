@@ -49,6 +49,8 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
     api "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
 
+    modImplementation("com.github.qouteall:GravityChanger:v${fabric_gravity_api_version}-mc${minecraft_version}")
+
     modImplementation("com.lowdragmc.photon:photon-fabric-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-fabric-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
 

@@ -4,6 +4,7 @@ import com.thettigerking.galacticconquest.block.GalacticConquestBlocks;
 import com.thettigerking.galacticconquest.event.AtmosphereCollision;
 import com.thettigerking.galacticconquest.items.GalacticConquestItems;
 import dev.architectury.event.events.common.TickEvent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 
 
@@ -22,5 +23,4 @@ public final class GalacticConquest {
         GalacticConquestBlocks.register();
         GalacticConquestItems.register();
     }
-
 }
