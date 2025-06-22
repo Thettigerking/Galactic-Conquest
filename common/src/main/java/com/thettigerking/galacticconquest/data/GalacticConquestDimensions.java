@@ -21,6 +21,15 @@ public class GalacticConquestDimensions {
         return true;
     }
 
+    public static boolean shouldHaveClouds(ResourceLocation levelResourceLocation) {
+        if (levelResourceLocation.equals(
+                GalacticConquestDimensions.SOLAR_SYSTEM_KEY.location()
+        )) {
+            return false;
+        }
+        return true;
+    }
+
     public static boolean shouldOnlyRenderStars(ResourceLocation levelResourceLocation) {
         if (levelResourceLocation.equals(
                 GalacticConquestDimensions.SOLAR_SYSTEM_KEY.location()

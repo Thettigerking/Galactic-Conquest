@@ -31,20 +31,23 @@ configurations {
 }
 
 dependencies {
-    forge "net.minecraftforge:forge:$rootProject.forge_version"
+    forge "net.minecraftforge:forge:$forge_version"
 
-    modImplementation "dev.architectury:architectury-forge:$rootProject.architectury_api_version"
+    modImplementation "dev.architectury:architectury-forge:$architectury_api_version"
+
+    // Cloth Config
+    include(modImplementation("me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"))
 
     implementation("thedarkcolour:kotlinforforge:$forge_kotlin_version")
 
     // Mixin Extras
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras}"))
-    implementation(include("io.github.llamalad7:mixinextras-forge:${mixin_extras}"))
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras_version}"))
+    implementation(include("io.github.llamalad7:mixinextras-forge:${mixin_extras_version}"))
     // Mixin Squared
-    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared}"))
-    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:${mixin_squared}"))
+    compileOnly(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared_version}"))
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-forge:${mixin_squared_version}"))
     // Conditional Mixin
-    implementation(include("me.fallenbreath:conditional-mixin-forge:${conditional_mixin}"))
+    implementation(include("me.fallenbreath:conditional-mixin-forge:${conditional_mixin_version}"))
 
     // VS2
     modApi("org.valkyrienskies:valkyrienskies-120-forge:${vs2_version}") { transitive = false }
@@ -53,9 +56,6 @@ dependencies {
     forgeRuntimeLibrary implementation("org.valkyrienskies.core:util:${vs_core_version}") { transitive = false }
     //forgeRuntimeLibrary implementation("org.valkyrienskies.core:impl:${vs_core_version}") { transitive = false }
     forgeRuntimeLibrary implementation("thedarkcolour:kotlinforforge:${forge_kotlin_version}")
-
-    // Gravity API
-    modImplementation("com.github.min2222:Gravity-API:${forge_gravity_api_version}")
 
     // region Manually include every single dependency of vs-core (total meme)
     /*forgeRuntimeLibrary include("org.valkyrienskies.core:api:${vs_core_version}") {
@@ -95,8 +95,19 @@ dependencies {
     forgeRuntimeLibrary implementation("com.google.dagger:dagger:2.43.2") { transitive = false }
     // endregion
 
-    modImplementation("com.lowdragmc.photon:photon-forge-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
-    modImplementation("com.lowdragmc.ldlib:ldlib-forge-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
+    // LDLib, Photon, Shimmer
+    modImplementation("com.lowdragmc.shimmer:Shimmer-forge:${minecraft_version}-${shimmer_version}") { transitive = false }
+    modImplementation("com.lowdragmc.photon:photon-forge-${minecraft_version}:${photon_version}") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-forge-${minecraft_version}:${ldlib_version}") { transitive = false }
+
+    // Gravity API
+    modImplementation("com.github.min2222:Gravity-API:${forge_gravity_api_version}")
+
+    // Do a Barrel Roll
+    modImplementation("nl.enjarai:do-a-barrel-roll:${forge_do_a_barrel_roll_version}+${minecraft_version}-neoforge") {
+        exclude group: "dev.isxander"
+    }
+    modRuntimeOnly("dev.isxander.yacl:yet-another-config-lib-forge:${yacl_version}")
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')

@@ -25,20 +25,25 @@ configurations {
 }
 
 dependencies {
-    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+    modImplementation "net.fabricmc:fabric-loader:$fabric_loader_version"
 
-    modImplementation "net.fabricmc.fabric-api:fabric-api:$rootProject.fabric_api_version"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_api_version"
 
-    modImplementation "dev.architectury:architectury-fabric:$rootProject.architectury_api_version"
+    modImplementation "dev.architectury:architectury-fabric:$architectury_api_version"
 
-    modImplementation("net.fabricmc:fabric-language-kotlin:${rootProject.fabric_kotlin_version}+kotlin.${rootProject.kotlin_version}")
+    // Cloth Config
+    include(modImplementation("me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}"))
+
+    modApi("com.terraformersmc:modmenu:${modmenu_version}")
+
+    modImplementation("net.fabricmc:fabric-language-kotlin:${fabric_kotlin_version}+kotlin.${kotlin_version}")
 
     // Mixin Extras
-    implementation(include(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extras}")))
+    implementation(include(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${mixin_extras_version}")))
     // Mixin Squared
-    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:${mixin_squared}"))
+    implementation(include("com.github.bawnorton.mixinsquared:mixinsquared-fabric:${mixin_squared_version}"))
     // Conditional Mixin
-    implementation(include("me.fallenbreath:conditional-mixin-fabric:${conditional_mixin}"))
+    implementation(include("me.fallenbreath:conditional-mixin-fabric:${conditional_mixin_version}"))
 
     // VS2
     modApi("org.valkyrienskies:valkyrienskies-120-fabric:${vs2_version}") { transitive = false }
@@ -49,10 +54,26 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
     api "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
 
+    // LDLib, Photon, Shimmer
+    modImplementation("com.lowdragmc.shimmer:Shimmer-fabric:${minecraft_version}-${shimmer_version}") { transitive = false }
+    modImplementation("com.lowdragmc.photon:photon-fabric-${minecraft_version}:${photon_version}") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-fabric-${minecraft_version}:${ldlib_version}") { transitive = false }
+
+    // Gravity API
     modImplementation("com.github.qouteall:GravityChanger:v${fabric_gravity_api_version}-mc${minecraft_version}")
 
-    modImplementation("com.lowdragmc.photon:photon-fabric-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
-    modImplementation("com.lowdragmc.ldlib:ldlib-fabric-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
+    // CICADA
+    modImplementation("nl.enjarai:cicada-lib:${cicada_version}+${minecraft_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+
+    // Do a Barrel Roll
+    modImplementation("nl.enjarai:do-a-barrel-roll:${do_a_barrel_roll_version}+${minecraft_version}-fabric") {
+        exclude group: "dev.isxander"
+    }
+    modRuntimeOnly("dev.isxander.yacl:yet-another-config-lib-fabric:${yacl_version}") {
+        exclude group: "net.fabricmc"
+    }
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionFabric')

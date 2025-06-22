@@ -1,21 +1,24 @@
 architectury {
-    common rootProject.enabled_platforms.split(',')
+    common enabled_platforms.split(',')
 }
 
 dependencies {
     // We depend on Fabric Loader here to use the Fabric @Environment annotations,
     // which get remapped to the correct annotations on each platform.
     // Do NOT use other classes from Fabric Loader.
-    modImplementation "net.fabricmc:fabric-loader:$rootProject.fabric_loader_version"
+    modImplementation "net.fabricmc:fabric-loader:$fabric_loader_version"
 
-    modImplementation "dev.architectury:architectury:$rootProject.architectury_api_version"
+    modImplementation "dev.architectury:architectury:$architectury_api_version"
+
+    // Cloth Config
+    modApi("me.shedaniel.cloth:cloth-config:${cloth_config_version}")
 
     // Mixin Extras
-    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras}"))
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-common:${mixin_extras_version}"))
     // Mixin Squared
-    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared}"))
+    implementation(annotationProcessor("com.github.bawnorton.mixinsquared:mixinsquared-common:${mixin_squared_version}"))
     // Conditional Mixin
-    implementation("me.fallenbreath:conditional-mixin-fabric:${conditional_mixin}")
+    implementation("me.fallenbreath:conditional-mixin-fabric:${conditional_mixin_version}")
 
     // VS2
     modApi("org.valkyrienskies:valkyrienskies-120-common:${vs2_version}") { transitive = false }
@@ -26,6 +29,14 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10"
     api "org.jetbrains.kotlin:kotlin-reflect:1.9.10"
 
-    modImplementation("com.lowdragmc.photon:photon-common-${rootProject.minecraft_version}:${rootProject.photon_version}") { transitive = false }
-    modImplementation("com.lowdragmc.ldlib:ldlib-common-${rootProject.minecraft_version}:${rootProject.ldlib_version}") { transitive = false }
+    // LDLib, Photon, Shimmer
+    modImplementation ("com.lowdragmc.shimmer:Shimmer-common:${minecraft_version}-${shimmer_version}") { transitive = false }
+    modImplementation("com.lowdragmc.photon:photon-common-${minecraft_version}:${photon_version}") { transitive = false }
+    modImplementation("com.lowdragmc.ldlib:ldlib-common-${minecraft_version}:${ldlib_version}") { transitive = false }
+
+    // Do a Barrel Roll
+    modImplementation("nl.enjarai:do-a-barrel-roll:${do_a_barrel_roll_version}+${minecraft_version}-common") {
+        exclude group: "dev.isxander"
+    }
+    modRuntimeOnly("dev.isxander.yacl:yet-another-config-lib-common:${yacl_version}")
 }
