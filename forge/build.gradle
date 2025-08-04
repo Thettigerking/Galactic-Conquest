@@ -104,9 +104,6 @@ dependencies {
     modImplementation("com.github.min2222:Gravity-API:${forge_gravity_api_version}")
 
     // Do a Barrel Roll
-    modImplementation("nl.enjarai:do-a-barrel-roll:${forge_do_a_barrel_roll_version}+${minecraft_version}-neoforge") {
-        exclude group: "dev.isxander"
-    }
     modRuntimeOnly("dev.isxander.yacl:yet-another-config-lib-forge:${yacl_version}")
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }

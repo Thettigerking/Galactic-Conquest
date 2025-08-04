@@ -34,9 +34,5 @@ dependencies {
     modImplementation("com.lowdragmc.photon:photon-common-${minecraft_version}:${photon_version}") { transitive = false }
     modImplementation("com.lowdragmc.ldlib:ldlib-common-${minecraft_version}:${ldlib_version}") { transitive = false }
 
-    // Do a Barrel Roll
-    modImplementation("nl.enjarai:do-a-barrel-roll:${do_a_barrel_roll_version}+${minecraft_version}-common") {
-        exclude group: "dev.isxander"
-    }
     modRuntimeOnly("dev.isxander.yacl:yet-another-config-lib-common:${yacl_version}")
 }

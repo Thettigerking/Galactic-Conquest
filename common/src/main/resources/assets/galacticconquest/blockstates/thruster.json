@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,lit=false": {
+      "model": "galacticconquest:block/jetthruster",
+      "x": 90
+    },
+    "facing=east,lit=false": {
+      "model": "galacticconquest:block/jetthruster",
+      "y": 90
+    },
+    "facing=north,lit=false": {
+      "model": "galacticconquest:block/jetthruster"
+    },
+    "facing=south,lit=false": {
+      "model": "galacticconquest:block/jetthruster",
+      "y": 180
+    },
+    "facing=up,lit=false": {
+      "model": "galacticconquest:block/jetthruster",
+      "x": 270
+    },
+    "facing=west,lit=false": {
+      "model": "galacticconquest:block/jetthruster",
+      "y": 270
+    },
+    "facing=down,lit=true": {
+      "model": "galacticconquest:block/jetthruster",
+      "x": 90
+    },
+    "facing=east,lit=true": {
+      "model": "galacticconquest:block/jetthruster",
+      "y": 90
+    },
+    "facing=north,lit=true": {
+      "model": "galacticconquest:block/jetthruster"
+    },
+    "facing=south,lit=true": {
+      "model": "galacticconquest:block/jetthruster",
+      "y": 180
+    },
+    "facing=up,lit=true": {
+      "model": "galacticconquest:block/jetthruster",
+      "x": 270
+    },
+    "facing=west,lit=true": {
+      "model": "galacticconquest:block/jetthruster",
+      "y": 270
+    }
+  }
+}

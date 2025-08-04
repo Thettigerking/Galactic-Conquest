@@ -30,6 +30,15 @@ public class GalacticConquestBlocks {
             )
     );
 
+    public static final RegistrySupplier<Block> THRUSTER = registerBlock(
+            "jetthruster",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)
+                    // .friction(.6f)a
+                    .ignitedByLava()
+                    .destroyTime(5)
+            )
+    );
+
     private static <T extends Block> RegistrySupplier<T> registerBlock(String name, Supplier<T> block) {
         RegistrySupplier<T> toReturn = BLOCKS.register(
                 new ResourceLocation(GalacticConquest.MOD_ID, name),

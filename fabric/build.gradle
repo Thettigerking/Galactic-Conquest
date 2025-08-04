@@ -63,14 +63,8 @@ dependencies {
     modImplementation("com.github.qouteall:GravityChanger:v${fabric_gravity_api_version}-mc${minecraft_version}")
 
     // CICADA
-    modImplementation("nl.enjarai:cicada-lib:${cicada_version}+${minecraft_version}") {
-        exclude group: "net.fabricmc.fabric-api"
-    }
 
     // Do a Barrel Roll
-    modImplementation("nl.enjarai:do-a-barrel-roll:${do_a_barrel_roll_version}+${minecraft_version}-fabric") {
-        exclude group: "dev.isxander"
-    }
     modRuntimeOnly("dev.isxander.yacl:yet-another-config-lib-fabric:${yacl_version}") {
         exclude group: "net.fabricmc"
     }
