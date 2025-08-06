@@ -60,9 +60,9 @@ public class JetThruster extends DirectionalBlock implements EntityBlock {
             serverLevel.setBlock(blockPos, blockState.cycle(LIT), 2);
         }
         if (serverLevel.getBlockEntity(blockPos) instanceof TestThrusterBlockEntity blockEntity) {
-            if (!blockEntity.added) {
-                blockEntity.added = true;
-                DebugPhysicsTickables.add(blockEntity);
+            if (!blockEntity.getAdded()) {
+                blockEntity.setAdded(true);
+                DebugPhysicsTickables.INSTANCE.add(blockEntity);
             }
             blockEntity.isActive = blockState.getValue(LIT);
             blockEntity.shipMountedTo = serverLevel.getShipObjectManagingPos(blockPos) != null

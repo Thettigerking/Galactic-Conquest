@@ -6,7 +6,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import org.jetbrains.annotations.NotNull;
 import org.valkyrienskies.core.api.VsBeta;
+import org.valkyrienskies.core.api.ships.Ship;
 import org.valkyrienskies.core.api.world.PhysLevel;
 import org.valkyrienskies.core.api.world.properties.DimensionId;
 import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
@@ -61,5 +63,10 @@ public class TestThrusterBlockEntity extends BlockEntity implements ITestTickabl
                 getFacing().getNormal().toJOMLD().mul(50000.0),
                 getPos().toJOMLD().add(0.5, 0.5, 0.5).subtract(ship.transform.positionInShip)
         );
+    }
+
+    @Override
+    public boolean matchesDimension(@NotNull String s) {
+        return false;
     }
 }
