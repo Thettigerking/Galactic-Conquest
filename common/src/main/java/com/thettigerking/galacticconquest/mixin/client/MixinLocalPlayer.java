@@ -1,4 +1,4 @@
-/*package com.thettigerking.galacticconquest.mixin.client;
+    /*package com.thettigerking.galacticconquest.mixin.client;
 
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.util.Mth;

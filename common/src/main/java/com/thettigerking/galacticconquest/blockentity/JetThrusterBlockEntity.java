@@ -1,8 +1,9 @@
-package com.thettigerking.galacticconquest.blockentity;
+/*package com.thettigerking.galacticconquest.blockentity;
 
 import kotlin.jvm.Volatile;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -12,9 +13,10 @@ import org.valkyrienskies.core.api.ships.Ship;
 import org.valkyrienskies.core.api.world.PhysLevel;
 import org.valkyrienskies.core.api.world.properties.DimensionId;
 import org.valkyrienskies.mod.common.ValkyrienSkiesMod;
+import org.valkyrienskies.mod.common.blockentity.DebugPhysicsTickables;
 import org.valkyrienskies.mod.common.dimensionId;
+import org.valkyrienskies.mod.common.util.DimensionIdProvider;
 import org.valkyrienskies.mod.common.util.ITestTickable;
-import org.valkyrienskies.mod.common.util.ToJOMLD;
 
 public class TestThrusterBlockEntity extends BlockEntity implements ITestTickable {
     private boolean added = false;
@@ -30,7 +32,7 @@ public class TestThrusterBlockEntity extends BlockEntity implements ITestTickabl
     }
 
     public Direction getFacing() {
-        return blockState.getValue(BlockStateProperties.FACING);
+        return getBlockState().getValue(BlockStateProperties.FACING);
     }
 
     public BlockPos getPos() {
@@ -39,13 +41,13 @@ public class TestThrusterBlockEntity extends BlockEntity implements ITestTickabl
 
     @Override
     public void setRemoved() {
-        DebugPhysicsTickables.remove(this);
+        DebugPhysicsTickables.remove(this); //(this);
         super.setRemoved();
     }
 
     @Override
-    public boolean matchesDimension(DimensionId dimensionId) {
-        return level != null && level.dimensionId.equals(dimensionId);
+    public boolean matchesDimension(DimensionIdProvider dimensionId) {
+        return level != null && level.dimension().equals(dimensionId); // .dimensionId.equals(dimensionId);
     }
 
     @VsBeta
@@ -57,16 +59,18 @@ public class TestThrusterBlockEntity extends BlockEntity implements ITestTickabl
         Ship ship = physLevel.getShipById(shipMountedTo);
         if (ship == null) {
             return;
+            ship.f(
+                    this.getFacing().getNormal().multiply(50000));
+            this.getPos().offset(1, 1, 1).subtract((Vec3i) ship.getTransform().getPositionInShip());
         }
 
-        ship.applyRotDependentForceToPos(
-                getFacing().getNormal().toJOMLD().mul(50000.0),
-                getPos().toJOMLD().add(0.5, 0.5, 0.5).subtract(ship.transform.positionInShip)
-        );
+        public boolean matchesDimension (String s){
+            return false;
+        }
     }
 
     @Override
     public boolean matchesDimension(@NotNull String s) {
         return false;
     }
-}
+}*/

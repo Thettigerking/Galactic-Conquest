@@ -1,4 +1,4 @@
-package com.thettigerking.galacticconquest.block;
+/*package com.thettigerking.galacticconquest.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -64,10 +64,10 @@ public class JetThruster extends DirectionalBlock implements EntityBlock {
                 blockEntity.setAdded(true);
                 DebugPhysicsTickables.INSTANCE.add(blockEntity);
             }
-            blockEntity.isActive = blockState.getValue(LIT);
-            blockEntity.shipMountedTo = serverLevel.getShipObjectManagingPos(blockPos) != null
+            blockEntity.setActive(blockState.getValue(LIT));
+            blockEntity.setShipMountedTo(serverLevel.(blockPos) != null
                     ? serverLevel.getShipObjectManagingPos(blockPos).id
-                    : -1L;
+                    : -1L);
         }
     }
 
@@ -80,4 +80,4 @@ public class JetThruster extends DirectionalBlock implements EntityBlock {
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
         return new TestThrusterBlockEntity(blockPos, blockState);
     }
-}
+}*/
